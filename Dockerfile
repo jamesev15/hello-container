@@ -17,6 +17,7 @@ RUN rm -rf /tmp/*
 FROM --platform=$TARGETPLATFORM scratch
 
 COPY --from=compiler /lib*/ld-linux-*.so.* /lib/
+COPY --from=compiler /lib*/ld-linux-*.so.* /lib64/
 COPY --from=compiler /lib/*-linux-gnu/libc.so.6 /lib/
 
 COPY --from=compiler /etc/passwd /etc/passwd
